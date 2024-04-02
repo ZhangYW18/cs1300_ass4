@@ -1,0 +1,47 @@
+.card {
+    display: flex;
+    justify-content: center;
+}
+
+.cardContent {
+    width: 200px;
+}
+
+.cover {
+    width: 200px;
+}
+
+h4 {
+    margin: 3px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    overflow: hidden;
+    /*white-space: nowrap;*/
+    text-overflow: ellipsis;
+}
+
+.title {
+    -webkit-line-clamp: 2;
+    height: 40px;
+}
+
+.artist, .genre-year {
+    -webkit-line-clamp: 1;
+    font-weight: 500;
+    height: 20px;
+}
+
+.favorite {
+    height: 30px;
+    width: 80px;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    background-color: #363636;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Tulip",
+    "artist": "indigo la end",
+    "genre": "Rock",
+    "year": 2021
+  },
+  {
+    "title": "Crying End Roll",
+    "artist": "indigo la end",
+    "genre": "Rock",
+    "year": 2017
+  },
+  {
+    "title": "Bloom",
+    "artist": "Beach House",
+    "genre": "Alternative",
+    "year": 2012
+  },
+  {
+    "title": "This Is Country Music",
+    "artist": "Brad Paisley",
+    "genre": "Country",
+    "year": 2011
+  },
+  {
+    "title": "New Young City",
+    "artist": "For Tracy Hyde",
+    "genre": "Alternative",
+    "year": 2019
+  },
+  {
+    "title": "Lights Out",
+    "artist": "Ingrid Michaelson",
+    "genre": "Pop",
+    "year": 2014
+  },
+  {
+    "title": "Night Visions",
+    "artist": "Imagine Dragons",
+    "genre": "Alternative",
+    "year": 2012
+  },
+  {
+    "title": "Yakou Himitsu",
+    "artist": "indigo la end",
+    "genre": "Rock",
+    "year": 2021
+  },
+  {
+    "title": "Divinely Uninspired To A Hellish Extent",
+    "artist": "Lewis Capaldi",
+    "genre": "Pop",
+    "year": 2019
+  },
+  {
+    "title": "OK Computer",
+    "artist": "Radiohead",
+    "genre": "Rock",
+    "year": 1997
+  },
+  {
+    "title": "Play On",
+    "artist": "Carrie Underwood",
+    "genre": "Country",
+    "year": 2009
+  },
+  {
+    "title": "Thankful",
+    "artist": "Kelly Clarkson",
+    "genre": "Pop",
+    "year": 2003
+  }
+]
