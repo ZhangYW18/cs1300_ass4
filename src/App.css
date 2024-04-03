@@ -43,3 +43,13 @@
 .FavoriteRow {
     margin-bottom: 5px;
 }
+
+@media (max-width: 350px) {
+    .AppContent {
+        flex-direction: column;
+    }
+
+    .AlbumLib, .AppSidebar {
+        width: 90vw;
+    }
+}

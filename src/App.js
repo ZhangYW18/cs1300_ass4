@@ -1,6 +1,6 @@
 import './App.css';
 import AlbumLib from "./components/AlbumLib/AlbumLib";
-import albumData from "./assets/albums.json";
+import albumJsonData from "./assets/albums.json";
 import React, {useState} from "react";
 import FilterButton from "./components/FilterButton/FilterButton";
 
@@ -8,7 +8,7 @@ const myCompare = (a, b) => {
   return a.toString().localeCompare(b.toString(), 'en', { sensitivity: 'base' })
 }
 
-albumData.forEach((item, index) => {
+let albumData = albumJsonData.map((item, index) => {
   // item.image = process.env.PUBLIC_URL + "/" + item.image;
   // Local Test Image
   item.image = process.env.PUBLIC_URL + "/images/" +
@@ -20,6 +20,7 @@ albumData.forEach((item, index) => {
   item.originalIndex = index
   // TODO debug
   // if (item.artist === "The Cribs") item.favorite = true
+  return item
 })
 
 // Deep copy, not shallow copy
