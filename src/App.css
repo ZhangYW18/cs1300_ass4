@@ -14,12 +14,23 @@
 }
 
 .AlbumLib {
-    width: 65vw;
+    width: calc(90vw - 300px);
 }
 
 .AppSidebar {
-    width: 27vw;
+    width: 300px;
     gap: 10px;
+
+    /*position: fixed;*/
+    /*top: 80px;*/
+    /*right: 0;*/
+    /*z-index: 1000;*/
+    /*margin-right: 30px;*/
+    /*overflow: scroll;*/
+
+    /*!*When overflow in height, let it be scrollable.*!*/
+    /*max-height: calc(100vh - 80px);*/
+    /*overflow-y: auto;*/
 }
 
 .Selectors {
@@ -48,13 +59,21 @@
     display: none;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 600px) {
     .AppContent {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .AlbumLib, .AppSidebar {
         width: 90vw;
     }
+
+    /*.AppSidebar {*/
+    /*    gap: 10px;*/
+    /*    margin-right: 0;*/
+
+    /*    position: unset;*/
+    /*    max-height: unset;*/
+    /*}*/
 }
 
