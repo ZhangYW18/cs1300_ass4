@@ -179,10 +179,10 @@ function App() {
 
           <div className={"Selectors"}>
             Time:
-            <input name="minimum-release-year" type="number" min="1900" max="2024" onChange={handleLowerYear} value={lowerYear}/> to
-            <label for={"minimum-release-year" } className={"HiddenLabel"}>Filters albums released before this year</label>
-            <input name="maximum-release-year" type="number" min="1900" max="2024" onChange={handleUpperYear} value={upperYear}/>
-            <label htmlFor={"maximum-release-year"} className={"HiddenLabel"}>Filters albums released after this
+            <input id="minimum-release-year" type="number" min="1900" max="2024" onChange={handleLowerYear} value={lowerYear}/> to
+            <label for={"minimum-release-year"} className={"HiddenLabel"}>Filters albums released before this year</label>
+            <input id="maximum-release-year" type="number" min="1900" max="2024" onChange={handleUpperYear} value={upperYear}/>
+            <label for={"maximum-release-year"} className={"HiddenLabel"}>Filters albums released after this
               year</label>
             <FilterButton text={"Apply"} onClick={handleYearFilter}/>
           </div>
