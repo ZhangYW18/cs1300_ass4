@@ -44,6 +44,10 @@
     margin-bottom: 5px;
 }
 
+.HiddenLabel {
+    display: none;
+}
+
 @media (max-width: 350px) {
     .AppContent {
         flex-direction: column;
@@ -53,3 +57,4 @@
         width: 90vw;
     }
 }
+

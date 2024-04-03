@@ -10,7 +10,7 @@ function FilterButton(props) {
       <button
         className={"filter"}
         style={{
-          background: selected ? "red" : "black"
+          background: selected ? "#2718F7" : "black"
         }}
         onClick={() => onClick(text)}
       >{text}</button>

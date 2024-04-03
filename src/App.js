@@ -25,7 +25,7 @@ let albumData = albumJsonData.map((item, index) => {
 
 // Deep copy, not shallow copy
 let backupAlbumData = JSON.parse(JSON.stringify(albumData));
-console.log(backupAlbumData)
+// console.log(backupAlbumData)
 
 // albumData.sort((a, b) => {
 //   const artistOrder = myCompare(a.artist, b.artist)
@@ -136,7 +136,7 @@ function App() {
   }
 
   const resetAll = (text) => {
-    console.log(albumData)
+    // console.log(albumData)
     setSelectedGenre("All")
     setSelectedOrder("none")
     setLowerYear(defaultLowerYear)
@@ -149,7 +149,7 @@ function App() {
     })
     // Deep copy
     albumData = JSON.parse(JSON.stringify(backupAlbumData));
-    console.log(albumData)
+    // console.log(albumData)
   }
 
   return (
@@ -179,8 +179,11 @@ function App() {
 
           <div className={"Selectors"}>
             Time:
-            <input type="number" min="1900" max="2099" onChange={handleLowerYear} value={lowerYear}/> to
-            <input type="number" min="1900" max="2099" onChange={handleUpperYear} value={upperYear}/>
+            <input name="minimum-release-year" type="number" min="1900" max="2024" onChange={handleLowerYear} value={lowerYear}/> to
+            <label for={"minimum-release-year" } className={"HiddenLabel"}>Filters albums released before this year</label>
+            <input name="maximum-release-year" type="number" min="1900" max="2024" onChange={handleUpperYear} value={upperYear}/>
+            <label htmlFor={"maximum-release-year"} className={"HiddenLabel"}>Filters albums released after this
+              year</label>
             <FilterButton text={"Apply"} onClick={handleYearFilter}/>
           </div>
 
