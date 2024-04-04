@@ -4,22 +4,22 @@ import albumJsonData from "./assets/albums.json";
 import React, {useState} from "react";
 import FilterButton from "./components/FilterButton/FilterButton";
 
+// let 'A' = 'a', ignoring case
 const myCompare = (a, b) => {
   return a.toString().localeCompare(b.toString(), 'en', { sensitivity: 'base' })
 }
 
 let albumData = albumJsonData.map((item, index) => {
+  // Load Image
   // item.image = process.env.PUBLIC_URL + "/" + item.image;
-  // Local Test Image
   item.image = process.env.PUBLIC_URL + "/images/" +
     item.artist.toLowerCase().replaceAll(" ", "-") + "-" +
     item.title.toLowerCase().replaceAll(" ", "-") +
     ".jpg"
+  // Init
   item.favorite = false
   item.filtered = false
   item.originalIndex = index
-  // TODO debug
-  // if (item.artist === "The Cribs") item.favorite = true
   return item
 })
 
@@ -27,23 +27,24 @@ let albumData = albumJsonData.map((item, index) => {
 let backupAlbumData = JSON.parse(JSON.stringify(albumData));
 // console.log(backupAlbumData)
 
+// Let albums remain unsorted at first
 // albumData.sort((a, b) => {
 //   const artistOrder = myCompare(a.artist, b.artist)
 //   return artistOrder === 0 ? myCompare(a.title, b.title) : artistOrder
 // });
 
+// Init all possible genres
 let genres = Array.from(new Set(albumData.map(album => {
   return album.genre
 }))).sort();
 genres.unshift("All")
 
+// Init year range
 const defaultLowerYear = Math.min(...albumData.map((album) => album.year))
 const defaultUpperYear = 2024
 
 function App() {
-  // const [albums, setAlbums] = useState([])
   const [favorites, setFavorites] = useState([])
-  // const [favoriteCount, setFavoriteCount] = useState(0)
   const [selectedGenre, setSelectedGenre] = useState("All")
   const [selectedOrder, setSelectedOrder] = useState("none")
 
@@ -59,19 +60,17 @@ function App() {
     setUpperYear(e.target.value);
   };
 
+  // Add or delete an album from favorites
   const handleFavorite = (title, artist) => {
-    // console.log(favorites)
     albumData.forEach(album => {
       if (title !== album.title || artist !== album.artist)
         return;
       album.favorite = !album.favorite
       if (!album.favorite) {
         // Delete from favorite
-        // console.log(album)
         const index = favorites.findIndex(album => {
           return title === album.title && artist === album.artist
         })
-        // console.log(favorites, index)
         setFavorites(favorites.toSpliced(index, 1));
       } else {
         // Favorite
@@ -81,6 +80,7 @@ function App() {
     })
   };
 
+  // Re-Filter the albums by genre tag and year
   const handleGenreFilter = (genre) => {
     setSelectedGenre(genre)
     albumData = albumData.map(album => {
@@ -93,6 +93,7 @@ function App() {
     })
   }
 
+  // Re-Filter the albums by genre tag and year
   const handleYearFilter = (text) => {
     if (lowerYear < 1900 || lowerYear > 2024 || upperYear < 1900 || upperYear > 2024) {
       alert("Year must between 1900 and current year.")
@@ -115,6 +116,7 @@ function App() {
   }
 
 
+  // Sort the albums by 3 sorting keys
   const handleSort = (sortKey) => {
     setSelectedOrder(sortKey)
     sortKey = sortKey.toLowerCase()
@@ -136,7 +138,6 @@ function App() {
   }
 
   const resetAll = (text) => {
-    // console.log(albumData)
     setSelectedGenre("All")
     setSelectedOrder("none")
     setLowerYear(defaultLowerYear)
@@ -160,15 +161,18 @@ function App() {
       </div>
 
       <div className={"AppContent"}>
+        {/*list all albums here*/}
         <div className={'AlbumLib'}>
           <AlbumLib albumData={albumData.filter(album => !album.filtered)} handleFavorite={handleFavorite}/>
         </div>
 
         <div className={"AppSidebar"}>
+          {/*Reset*/}
           <div className={"Selectors"}>
             <FilterButton text={" Reset All "} onClick={resetAll}/>
           </div>
 
+          {/*Genre filter*/}
           <div className={"Selectors"}>
             Genre:
             {genres.map(genre => {
@@ -177,6 +181,7 @@ function App() {
             })}
           </div>
 
+          {/*Year filter*/}
           <div className={"Selectors"}>
             Time:
             <input id="minimum-release-year" type="number" min="1900" max="2024" onChange={handleLowerYear} value={lowerYear}/> to
@@ -187,6 +192,7 @@ function App() {
             <FilterButton text={"Apply"} onClick={handleYearFilter}/>
           </div>
 
+          {/*sorting*/}
           <div className={"Selectors"}>
             Sort by
             <FilterButton text={"Artist"} selected={selectedOrder === "Artist"} onClick={handleSort}/>
@@ -194,6 +200,7 @@ function App() {
             <FilterButton text={"Year"} selected={selectedOrder === "Year"} onClick={handleSort}/>
           </div>
 
+          {/*Favorites*/}
           <div className={"Aggregator"}>
             <h2 key={"FavoriteCount"}>Favorites: {favorites.length}</h2>
             <ul key={"FavoriteList"} className={"Favorites"}>
