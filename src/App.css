@@ -59,7 +59,8 @@
     display: none;
 }
 
-@media (max-width: 600px) {
+/*for tablet and mobile devices*/
+@media (max-width: 1024px) {
     .AppContent {
         flex-direction: column-reverse;
     }
